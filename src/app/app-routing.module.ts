@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { TopicDetailPage } from './topic-detail-page/topic-detail-page.component';
+
+
 
 const routes: Routes = [
   {
@@ -11,6 +14,8 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  { path: 'topic-detail/:id', component: TopicDetailPage },
+
 ];
 
 @NgModule({
