@@ -14,7 +14,7 @@ import { TopicService } from '../services/topic.service';
 export class TopicDetailPage implements OnInit {
   topic:Topic | undefined; // Assurez-vous de définir correctement le type de votre modèle Topic
 
-  constructor(private activatedRoute: ActivatedRoute ,private topicService: TopicService) {}
+  constructor(private activatedRoute: ActivatedRoute ,private topicService: TopicService ) {}
   ngOnInit(){
 
 
@@ -29,8 +29,19 @@ export class TopicDetailPage implements OnInit {
     this.topic = this.topicService.getTopicDetails(topicId);
     // Reste du code pour traiter les détails du topic
 
-}
+    }
+
+
+
   }
+  deletePost(topicId: number, postId: number) {
+    console.log('Topic ID:', topicId);
+    console.log('Post ID:', postId);
+
+    this.topicService.deletePost(topicId, postId);
+
+  }
+
 
 
   // async openPostModal() {

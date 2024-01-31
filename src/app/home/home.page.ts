@@ -24,6 +24,10 @@ export class HomePage implements OnInit {
     this.topics = this.topicService.getTopics();
     // Traiter les données récupérées, par exemple, les stocker dans une propriété du composant dbase
   }
+  deleteTopic(topicId: number) {
+    this.topicService.deleteTopic(topicId);
+  }
+
 }
 
 
