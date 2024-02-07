@@ -4,6 +4,7 @@ import { TopicDetailPage } from './topic-detail-page/topic-detail-page.component
 
 
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -15,6 +16,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'topic-detail/:id', component: TopicDetailPage },
+  {
+    path: 'add-topic',
+    loadChildren: () => import('./add-topic/add-topic.module').then( m => m.AddTopicPageModule)
+  },
 
 ];
 

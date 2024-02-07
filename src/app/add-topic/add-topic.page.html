@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add New Topic</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input formControlName="title" type="text"></ion-input>
+      </ion-item>
+
+     
+      
+    </ion-list>
+    <ion-button type="submit" expand="block" [disabled]="!topicForm.valid">Submit</ion-button>
+  </form>
+</ion-content>
+
