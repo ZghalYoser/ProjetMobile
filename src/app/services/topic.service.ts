@@ -67,6 +67,49 @@ export class TopicService {
       topic.posts.push(post);
     }
   }
+  deletePost(topicId: number, postId: number): void {
+    console.log('Test click');
+
+    // Trouver l'index du sujet en fonction de l'ID
+    const topicIndex = this.topics.findIndex((topic) => topic.id === topicId);
+
+    // Vérifier si le sujet a été trouvé (index différent de -1)
+    if (topicIndex !== -1) {
+        // Trouver l'index du post en fonction de l'ID dans le tableau spécifique à ce sujet
+        const postIndex = this.topics[topicIndex].posts.findIndex((post) => post.id === postId);
+
+        // Vérifier si le post a été trouvé dans le tableau spécifique au sujet (index différent de -1)
+        if (postIndex !== -1) {
+            // Supprimer le post du tableau spécifique à ce sujet
+            this.topics[topicIndex].posts.splice(postIndex, 1);
+
+            // Supprimer le post du tableau global this.posts
+            this.posts = this.posts.filter((post) => post.id !== postId);
+        } else {
+            console.log("Le post n'a pas été trouvé dans le sujet.");
+        }
+    } else {
+        console.log("Le sujet n'a pas été trouvé.");
+    }
+}
+
+
+
+  deleteTopic(topicId: number): void {
+    console.log("test clique ");
+    // Trouver l'index du sujet en fonction de l'ID
+    const index = this.topics.findIndex((topic) => topic.id === topicId);
+
+    // Vérifier si le sujet a été trouvé (index différent de -1)
+    if (index !== -1) {
+      // Supprimer le sujet   choisie par id de la liste
+      this.topics.splice(index, 1);
+    } else {
+      console.log("Le sujet n'a pas été trouvé.");
+    }
+  }
+
+
 
 
 
